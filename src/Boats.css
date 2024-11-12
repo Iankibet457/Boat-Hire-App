@@ -1,0 +1,31 @@
+.flex-grid-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into new rows */
+    gap: 20px; /* Space between grid items */
+    justify-content: center; /* Center grid items horizontally */
+  }
+  
+  .grid-item {
+    width: 300px; /* Fixed width for each item */
+    height: 200px; /* Fixed height for each item */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center content vertically within each grid item */
+    align-items: center; /* Center content horizontally within each grid item */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .grid-item h2 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
