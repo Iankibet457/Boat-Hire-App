@@ -1,0 +1,104 @@
+{
+  "boats": [
+    {
+      "boat_id": 1,
+      "name": "Speedster 3000",
+      "type": "Motorboat",
+      "capacity": 6,
+      "price_per_hour": 50,
+      "availability": true,
+      "location": "Miami, FL",
+      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    },
+    {
+      "boat_id": 2,
+      "name": "Luxury Yacht 500",
+      "type": "Yacht",
+      "capacity": 12,
+      "price_per_hour": 200,
+      "availability": true,
+      "location": "Los Angeles, CA",
+      "image_url": "https://example.com/images/luxuryyacht500.jpg"
+    },
+    {
+      "boat_id": 3,
+      "name": "Fishing Boat 200",
+      "type": "Fishing Boat",
+      "capacity": 4,
+      "price_per_hour": 40,
+      "availability": false,
+      "location": "Key West, FL",
+      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+    },
+    {
+      "boat_id": 4,
+      "name": "SailMaster 420",
+      "type": "Sailboat",
+      "capacity": 8,
+      "price_per_hour": 75,
+      "availability": true,
+      "location": "San Diego, CA",
+      "image_url": "https://example.com/images/sailmaster420.jpg"
+    },
+    {
+      "boat_id": 5,
+      "name": "WaveRunner 200",
+      "type": "Jet Ski",
+      "capacity": 2,
+      "price_per_hour": 60,
+      "availability": true,
+      "location": "Miami, FL",
+      "image_url": "https://example.com/images/waverunner200.jpg"
+    },
+    {
+      "boat_id": 6,
+      "name": "Ocean Breeze",
+      "type": "Catamaran",
+      "capacity": 10,
+      "price_per_hour": 150,
+      "availability": false,
+      "location": "Hawaii, HI",
+      "image_url": "https://example.com/images/oceanbreeze.jpg"
+    },
+    {
+      "boat_id": 7,
+      "name": "Explorer 1000",
+      "type": "Motorboat",
+      "capacity": 6,
+      "price_per_hour": 55,
+      "availability": true,
+      "location": "Seattle, WA",
+      "image_url": "https://example.com/images/explorer1000.jpg"
+    },
+    {
+      "boat_id": 8,
+      "name": "Tropical Escape",
+      "type": "Yacht",
+      "capacity": 15,
+      "price_per_hour": 250,
+      "availability": true,
+      "location": "Bahamas",
+      "image_url": "https://example.com/images/tropicalescape.jpg"
+    },
+    {
+      "boat_id": 9,
+      "name": "Sun Seeker 350",
+      "type": "Motorboat",
+      "capacity": 5,
+      "price_per_hour": 80,
+      "availability": true,
+      "location": "Santa Monica, CA",
+      "image_url": "https://example.com/images/sunseeker350.jpg"
+    },
+    {
+      "boat_id": 10,
+      "name": "Royal Cruiser 600",
+      "type": "Cruiser",
+      "capacity": 20,
+      "price_per_hour": 400,
+      "availability": true,
+      "location": "Monaco",
+      "image_url": "https://example.com/images/royalcruiser600.jpg"
+    }
+  ]
+}

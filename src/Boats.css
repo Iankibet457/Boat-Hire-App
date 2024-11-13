@@ -3,6 +3,10 @@
     flex-wrap: wrap; /* Allow items to wrap into new rows */
     gap: 20px; /* Space between grid items */
     justify-content: center; /* Center grid items horizontally */
+    
+    /* left: 0; */
+    
+
   }
   
   .grid-item {
