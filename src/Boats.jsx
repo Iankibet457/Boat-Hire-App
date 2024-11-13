@@ -19,7 +19,7 @@ function Boats() {
   }, []);
 
   const handleEditClick = (boat) => {
-    setEditingBoatId(boat.boat_id);
+    setEditingBoatId(boat.id);
     setFormData({
       name: boat.name,
       type: boat.type,
@@ -48,17 +48,25 @@ function Boats() {
       },
       body: JSON.stringify(updatedData),
     })
+      .then(response => response.json())
+      .then(updatedBoat => {
+        setBoats(boats.map(boat => (boat.id === editingBoatId ? { ...boat, ...updatedBoat } : boat)));
+        setEditingBoatId(null);
+      })
+      .catch(error => console.error('Error updating boat data:', error));
+  };
+
+  const handleDeleteClick = (boatId) => {
+    fetch(`http://localhost:3000/boats/${boatId}`, {
+      method: 'DELETE',
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
+        setBoats(boats.filter(boat => boat.id !== boatId));
       })
-      .then(updatedBoat => {
-        setBoats(boats.map(boat => (boat.boat_id === editingBoatId ? updatedBoat : boat)));
-        setEditingBoatId(null);
-      })
-      .catch(error => console.error('Error updating boat data:', error));
+      .catch(error => console.error('Error deleting boat:', error));
   };
 
   return (
@@ -67,8 +75,8 @@ function Boats() {
         <p>Loading boats...</p>
       ) : (
         boats.map((boat) => (
-          <div key={boat.boat_id} className="grid-item">
-            {editingBoatId === boat.boat_id ? (
+          <div key={boat.id} className="grid-item">
+            {editingBoatId === boat.id ? (
               <form onSubmit={handleFormSubmit}>
                 <input
                   type="text"
@@ -109,6 +117,7 @@ function Boats() {
                 <p>Capacity: {boat.capacity} people</p>
                 <p>Price per hour: ${boat.price_per_hour}</p>
                 <button onClick={() => handleEditClick(boat)}>Edit</button>
+                <button onClick={() => handleDeleteClick(boat.id)}>Delete</button>
               </>
             )}
           </div>
