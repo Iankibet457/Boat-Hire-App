@@ -35,29 +35,30 @@ function Boats() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const updatedData = {
+      ...formData,
+      capacity: Number(formData.capacity),
+      price_per_hour: Number(formData.price_per_hour),
+    };
+
     fetch(`http://localhost:3000/boats/${editingBoatId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(updatedData),
     })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(updatedBoat => {
         setBoats(boats.map(boat => (boat.boat_id === editingBoatId ? updatedBoat : boat)));
         setEditingBoatId(null);
       })
       .catch(error => console.error('Error updating boat data:', error));
-  };
-
-  const handleDeleteClick = (boatId) => {
-    fetch(`http://localhost:3000/boats/${boatId}`, {
-      method: 'DELETE',
-    })
-      .then(() => {
-        setBoats(boats.filter(boat => boat.boat_id !== boatId));
-      })
-      .catch(error => console.error('Error deleting boat:', error));
   };
 
   return (
@@ -108,7 +109,6 @@ function Boats() {
                 <p>Capacity: {boat.capacity} people</p>
                 <p>Price per hour: ${boat.price_per_hour}</p>
                 <button onClick={() => handleEditClick(boat)}>Edit</button>
-                <button onClick={() => handleDeleteClick(boat.boat_id)}>Delete</button>
               </>
             )}
           </div>
