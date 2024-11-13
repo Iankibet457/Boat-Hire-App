@@ -35,7 +35,6 @@ function Boats() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Update the boat details on the server
     fetch(`http://localhost:3000/boats/${editingBoatId}`, {
       method: 'PUT',
       headers: {
@@ -49,6 +48,16 @@ function Boats() {
         setEditingBoatId(null);
       })
       .catch(error => console.error('Error updating boat data:', error));
+  };
+
+  const handleDeleteClick = (boatId) => {
+    fetch(`http://localhost:3000/boats/${boatId}`, {
+      method: 'DELETE',
+    })
+      .then(() => {
+        setBoats(boats.filter(boat => boat.boat_id !== boatId));
+      })
+      .catch(error => console.error('Error deleting boat:', error));
   };
 
   return (
@@ -99,6 +108,7 @@ function Boats() {
                 <p>Capacity: {boat.capacity} people</p>
                 <p>Price per hour: ${boat.price_per_hour}</p>
                 <button onClick={() => handleEditClick(boat)}>Edit</button>
+                <button onClick={() => handleDeleteClick(boat.boat_id)}>Delete</button>
               </>
             )}
           </div>
