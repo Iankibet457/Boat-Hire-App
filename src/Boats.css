@@ -1,35 +1,55 @@
 .flex-grid-container {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap into new rows */
-    gap: 20px; /* Space between grid items */
-    justify-content: center; /* Center grid items horizontally */
-    
-    /* left: 0; */
-    
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
 
-  }
-  
-  .grid-item {
-    width: 300px; /* Fixed width for each item */
-    height: 200px; /* Fixed height for each item */
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    justify-content: center; /* Center content vertically within each grid item */
-    align-items: center; /* Center content horizontally within each grid item */
+.grid-item {
+    width: 300px;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
-  }
-  
-  .grid-item img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.grid-item img {
     width: 100%;
-    height: auto;
+    height: 150px;
     object-fit: cover;
-  }
-  
-  .grid-item h2 {
-    margin-top: 10px;
-    font-size: 1.2rem;
+}
+
+.grid-item h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
     text-align: center;
-  }
+}
+
+.grid-item p {
+    margin: 5px 0;
+    text-align: center;
+    color: #555;
+}
+
+.grid-item button {
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: #004e92;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.grid-item button:hover {
+    background-color: #003366;
+}
   
