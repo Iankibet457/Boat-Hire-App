@@ -36,13 +36,13 @@ function Boats({ searchQuery }) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     
-    // Find the current boat data
+    
     const currentBoat = boats.find(boat => boat.id === editingBoatId);
     
-    // Merge the updated fields with existing data
+    
     const updatedData = {
-      ...currentBoat, // Keep all existing fields
-      ...formData,    // Override only the edited fields
+      ...currentBoat, 
+      ...formData,    
       capacity: Number(formData.capacity),
       price_per_hour: Number(formData.price_per_hour),
     };
