@@ -12,7 +12,7 @@ function Boats({ searchQuery }) {
   });
 
   useEffect(() => {
-    fetch('http://localhost:3000/boats')
+    fetch('https://boats-7hqf.onrender.com/boats')
       .then(response => response.json())
       .then(data => setBoats(data))
       .catch(error => console.error('Error fetching boat data:', error));
@@ -47,7 +47,7 @@ function Boats({ searchQuery }) {
       price_per_hour: Number(formData.price_per_hour),
     };
 
-    fetch(`http://localhost:3000/boats/${editingBoatId}`, {
+    fetch(`https://boats-7hqf.onrender.com/boats/${editingBoatId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function Boats({ searchQuery }) {
   };
 
   const handleDeleteClick = (boatId) => {
-    fetch(`http://localhost:3000/boats/${boatId}`, {
+    fetch(`https://boats-7hqf.onrender.com/boats/${boatId}`, {
       method: 'DELETE',
     })
       .then(response => {
