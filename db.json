@@ -1,14 +1,6 @@
 {
   "boats": [
     {
-      "name": "SailMaster 420",
-      "type": "Sailboat",
-      "capacity": 8,
-      "price_per_hour": 754,
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      "id": "0450"
-    },
-    {
       "boat_id": 5,
       "name": "WaveRunner 200",
       "type": "Jet Ski",
@@ -16,7 +8,7 @@
       "price_per_hour": 60,
       "availability": true,
       "location": "Miami, FL",
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "image_url": "https://shorturl.at/z087w",
       "id": "a2c3"
     },
     {
@@ -27,7 +19,7 @@
       "price_per_hour": 150,
       "availability": false,
       "location": "Hawaii, HI",
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "image_url": "https://shorturl.at/vNh2I",
       "id": "f4cf"
     },
     {
@@ -38,7 +30,7 @@
       "price_per_hour": 55,
       "availability": true,
       "location": "Seattle, WA",
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "image_url": "https://shorturl.at/R4mwB",
       "id": "96cb"
     },
     {
@@ -60,7 +52,7 @@
       "price_per_hour": 80,
       "availability": true,
       "location": "Santa Monica, CA",
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "image_url": "https://shorturl.at/qLshC",
       "id": "8062"
     },
     {
@@ -71,7 +63,7 @@
       "price_per_hour": 400,
       "availability": true,
       "location": "Monaco",
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "image_url": "https://shorturl.at/klZuG",
       "id": "149c"
     }
   ]
