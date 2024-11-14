@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import icon from './img/boat-rental-logo_29069-52.avif'
+
+
 
 
 function Header() {
@@ -8,9 +11,9 @@ function Header() {
         <div className='icon'>
             <img src={icon} alt="Boat Logo" />
         </div>
-        <div>Home</div>
-        <div>About</div>
-        <div>Services</div>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/services">Services</Link>
         <div>
             
             <input  type="text" placeholder='Search' />

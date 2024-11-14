@@ -111,7 +111,7 @@ function Boats() {
   };
 
   return (
-    <div className="flex-grid-container">
+    <div className="flex-grid-container" style={{ paddingTop: '50px' }}>
       <form onSubmit={handleAddFormSubmit}>
         <input
           type="text"
