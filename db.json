@@ -4,18 +4,14 @@
       "name": "Fishing Boat 200",
       "type": "Fishing Boat",
       "capacity": 4,
-      "price_per_hour": 404,
+      "price_per_hour": 405,
       "id": "f84e"
     },
     {
-      "boat_id": 4,
       "name": "SailMaster 420",
       "type": "Sailboat",
       "capacity": 8,
-      "price_per_hour": 75,
-      "availability": true,
-      "location": "San Diego, CA",
-      "image_url": "https://th.bing.com/th/id/OIP.9nt9bSXRHf7GZqObrqDSLgHaE4?w=283&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "price_per_hour": 754,
       "id": "0450"
     },
     {

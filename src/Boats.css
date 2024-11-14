@@ -1,14 +1,14 @@
 .flex-grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    justify-items: center;
+    justify-content: center;
     padding: 20px;
+    margin-top: 60px;
 }
 
 .grid-item {
-    width: 100%;
-    max-width: 250px;
+    width: 300px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -31,26 +31,5 @@
     margin: 10px 0;
     font-size: 1.5rem;
     text-align: center;
-}
-
-.grid-item p {
-    margin: 5px 0;
-    text-align: center;
-    color: #555;
-}
-
-.grid-item button {
-    margin: 10px;
-    padding: 8px 16px;
-    background-color: #004e92;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.grid-item button:hover {
-    background-color: #003366;
-}
+  }
   
