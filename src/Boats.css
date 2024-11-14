@@ -32,4 +32,25 @@
     font-size: 1.5rem;
     text-align: center;
   }
+
+.grid-item button {
+  border-radius: 12px;
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin: 0 5px;
+}
+
+.grid-item button:hover {
+  background: linear-gradient(135deg, #45a049, #1B5E20);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
   
