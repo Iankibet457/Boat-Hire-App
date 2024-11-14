@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Boats.css';
 
-function Boats() {
-  const [boats, setBoats] = useState([]);
+function Boats({ boats, setBoats, searchQuery }) {
   const [editingBoatId, setEditingBoatId] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -10,20 +9,6 @@ function Boats() {
     capacity: '',
     price_per_hour: '',
   });
-  const [addFormData, setAddFormData] = useState({
-    name: '',
-    type: '',
-    capacity: '',
-    price_per_hour: '',
-    image_url: '',
-  });
-
-  useEffect(() => {
-    fetch('http://localhost:3000/boats')
-      .then(response => response.json())
-      .then(data => setBoats(data))
-      .catch(error => console.error('Error fetching boat data:', error));
-  }, []);
 
   const handleEditClick = (boat) => {
     setEditingBoatId(boat.id);
@@ -76,85 +61,8 @@ function Boats() {
       .catch(error => console.error('Error deleting boat:', error));
   };
 
-  const handleAddInputChange = (e) => {
-    const { name, value } = e.target;
-    setAddFormData({ ...addFormData, [name]: value });
-  };
-
-  const handleAddFormSubmit = (e) => {
-    e.preventDefault();
-    const newBoat = {
-      ...addFormData,
-      capacity: Number(addFormData.capacity),
-      price_per_hour: Number(addFormData.price_per_hour),
-    };
-
-    fetch('http://localhost:3000/boats', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newBoat),
-    })
-      .then(response => response.json())
-      .then(addedBoat => {
-        setBoats([...boats, addedBoat]);
-        setAddFormData({
-          name: '',
-          type: '',
-          capacity: '',
-          price_per_hour: '',
-          image_url: '',
-        });
-      })
-      .catch(error => console.error('Error adding boat:', error));
-  };
-
   return (
-    <div className="flex-grid-container" style={{ paddingTop: '50px' }}>
-      <form onSubmit={handleAddFormSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={addFormData.name}
-          onChange={handleAddInputChange}
-          placeholder="Name"
-          required
-        />
-        <input
-          type="text"
-          name="type"
-          value={addFormData.type}
-          onChange={handleAddInputChange}
-          placeholder="Type"
-          required
-        />
-        <input
-          type="number"
-          name="capacity"
-          value={addFormData.capacity}
-          onChange={handleAddInputChange}
-          placeholder="Capacity"
-          required
-        />
-        <input
-          type="number"
-          name="price_per_hour"
-          value={addFormData.price_per_hour}
-          onChange={handleAddInputChange}
-          placeholder="Price per hour"
-          required
-        />
-        <input
-          type="text"
-          name="image_url"
-          value={addFormData.image_url}
-          onChange={handleAddInputChange}
-          placeholder="Image URL"
-          required
-        />
-        <button type="submit">Add Boat</button>
-      </form>
+    <div className="flex-grid-container">
       {boats.length === 0 ? (
         <p>Loading boats...</p>
       ) : (

@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import icon from './img/boat-rental-logo_29069-52.avif'
 
+function Header({ onSearch }) {
+  const handleSearchChange = (e) => {
+    onSearch(e.target.value);
+  };
 
-
-
-function Header() {
   return (
     <header className='header'>
         <div className='icon'>
@@ -15,8 +16,11 @@ function Header() {
         <Link to="/about">About</Link>
         <Link to="/services">Services</Link>
         <div>
-            
-            <input  type="text" placeholder='Search' />
+            <input 
+              type="text" 
+              placeholder='Search' 
+              onChange={handleSearchChange}
+            />
         </div>
     </header>
   )
