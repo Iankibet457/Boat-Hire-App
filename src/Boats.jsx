@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Boats.css';
 
-function Boats({ boats, setBoats, searchQuery }) {
+function Boats({ searchQuery }) {
+  const [boats, setBoats] = useState([]);
   const [editingBoatId, setEditingBoatId] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -9,6 +10,13 @@ function Boats({ boats, setBoats, searchQuery }) {
     capacity: '',
     price_per_hour: '',
   });
+
+  useEffect(() => {
+    fetch('http://localhost:3000/boats')
+      .then(response => response.json())
+      .then(data => setBoats(data))
+      .catch(error => console.error('Error fetching boat data:', error));
+  }, []);
 
   const handleEditClick = (boat) => {
     setEditingBoatId(boat.id);
@@ -27,8 +35,14 @@ function Boats({ boats, setBoats, searchQuery }) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    
+    // Find the current boat data
+    const currentBoat = boats.find(boat => boat.id === editingBoatId);
+    
+    // Merge the updated fields with existing data
     const updatedData = {
-      ...formData,
+      ...currentBoat, // Keep all existing fields
+      ...formData,    // Override only the edited fields
       capacity: Number(formData.capacity),
       price_per_hour: Number(formData.price_per_hour),
     };
@@ -42,7 +56,7 @@ function Boats({ boats, setBoats, searchQuery }) {
     })
       .then(response => response.json())
       .then(updatedBoat => {
-        setBoats(boats.map(boat => (boat.id === editingBoatId ? { ...boat, ...updatedBoat } : boat)));
+        setBoats(boats.map(boat => (boat.id === editingBoatId ? updatedBoat : boat)));
         setEditingBoatId(null);
       })
       .catch(error => console.error('Error updating boat data:', error));
@@ -61,12 +75,25 @@ function Boats({ boats, setBoats, searchQuery }) {
       .catch(error => console.error('Error deleting boat:', error));
   };
 
+  const filteredBoats = boats.filter(boat => {
+    if (!searchQuery) return true;
+    
+    const searchLower = searchQuery.toLowerCase();
+    return (
+      boat.name.toLowerCase().includes(searchLower) ||
+      boat.type.toLowerCase().includes(searchLower) ||
+      boat.location?.toLowerCase().includes(searchLower)
+    );
+  });
+
   return (
-    <div className="flex-grid-container">
+    <div className="flex-grid-container" style={{ paddingTop: '70px' }}>
       {boats.length === 0 ? (
         <p>Loading boats...</p>
+      ) : filteredBoats.length === 0 ? (
+        <p>No boats found matching your search.</p>
       ) : (
-        boats.map((boat) => (
+        filteredBoats.map((boat) => (
           <div key={boat.id} className="grid-item">
             {editingBoatId === boat.id ? (
               <form onSubmit={handleFormSubmit}>

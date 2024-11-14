@@ -16,11 +16,15 @@ function App() {
   const [boats, setBoats] = useState([]);
 
   useEffect(() => {
+    fetchBoats();
+  }, []);
+
+  const fetchBoats = () => {
     fetch('http://localhost:3000/boats')
       .then(response => response.json())
       .then(data => setBoats(data))
       .catch(error => console.error('Error fetching boat data:', error));
-  }, []);
+  };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -29,9 +33,13 @@ function App() {
   return (
     <Router>
       <Header onSearch={handleSearch} />
-      <Input boats={boats} setBoats={setBoats} />
       <Routes>
-        <Route path="/" element={<Boats boats={boats} setBoats={setBoats} searchQuery={searchQuery} />} />
+        <Route path="/" element={
+          <>
+            <Input boats={boats} setBoats={setBoats} />
+            <Boats boats={boats} setBoats={setBoats} searchQuery={searchQuery} />
+          </>
+        } />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
       </Routes>

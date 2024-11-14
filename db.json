@@ -1,14 +1,13 @@
 {
   "boats": [
     {
-      "boat_id": 5,
       "name": "WaveRunner 200",
       "type": "Jet Ski",
       "capacity": 2,
       "price_per_hour": 60,
       "availability": true,
       "location": "Miami, FL",
-      "image_url": "https://shorturl.at/z087w",
+      "image_url": "https://th.bing.com/th/id/R.d947b9f43a015d0d5602fd6904ef11bd?rik=cC%2fTsYFVuKA8Zg&pid=ImgRaw&r=0",
       "id": "a2c3"
     },
     {
