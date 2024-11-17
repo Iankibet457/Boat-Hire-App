@@ -22,7 +22,7 @@ const Input = ({ boats, setBoats }) => {
       price_per_hour: Number(addFormData.price_per_hour),
     };
 
-    fetch('http://localhost:3000/boats', {
+    fetch('https://boats-7hqf.onrender.com/boats', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
