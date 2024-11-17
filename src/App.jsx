@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const fetchBoats = () => {
-    fetch('http://localhost:3000/boats')
+    fetch('https://boats-7hqf.onrender.com/boats')
       .then(response => response.json())
       .then(data => setBoats(data))
       .catch(error => console.error('Error fetching boat data:', error));
